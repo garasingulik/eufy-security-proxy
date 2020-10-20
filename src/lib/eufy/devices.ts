@@ -14,10 +14,7 @@ export const getDeviceList = async (): T.R<T.DeviceInfo[]> => {
     }
   }
 
-  const deviceInfo = await T.wrapAxios<T.DeviceResponse>(axios.post(`${config.api.url}/app/get_devs_list`, {
-    email: config.api.username,
-    password: config.api.password
-  }, requestOptions))
+  const deviceInfo = await T.wrapAxios<T.ApiResponse<T.DeviceInfo[]>>(axios.post(`${config.api.url}/app/get_devs_list`, {}, requestOptions))
 
   if (T.isAxiosError(deviceInfo)) {
     return deviceInfo

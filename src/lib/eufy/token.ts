@@ -8,7 +8,7 @@ let tokenExpiry = new Date()
 
 export const getToken = async (): T.R<string> => {
   if (token === '' || isTokenExpired()) {
-    const loginInfo = await T.wrapAxios<T.LoginResponse>(axios.post(`${config.api.url}/passport/login`, {
+    const loginInfo = await T.wrapAxios<T.ApiResponse<T.LoginInfo>>(axios.post(`${config.api.url}/passport/login`, {
       email: config.api.username,
       password: config.api.password
     }))

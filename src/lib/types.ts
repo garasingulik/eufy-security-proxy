@@ -35,6 +35,11 @@ export const HelloRequest = iots.interface({
 
 export type HelloRequestType = iots.TypeOf<typeof HelloRequest>
 
+export interface ApiResponse<T> {
+  code: number
+  msg: string
+  data: T
+}
 
 export interface LoginParam {
   param_type: number
@@ -60,12 +65,6 @@ export interface LoginInfo {
   phone_code: string
   params: LoginParam[]
   trust_list: any[]
-}
-
-export interface LoginResponse {
-  code: number
-  msg: string
-  data: LoginInfo
 }
 
 export interface Station {
@@ -118,24 +117,27 @@ export interface DeviceParam {
   status: number
 }
 
-export interface DeviceInfo {
+export interface MiniDeviceInfo {
   device_id: number
-  is_init_complete: boolean
   device_sn: string
   device_name: string
   device_model: string
-  time_zone: string
-  device_type: number
-  device_channel: number
   station_sn: string
-  schedule: string
-  schedulex: string
   wifi_mac: string
-  sub1g_mac: string
   main_sw_version: string
   main_hw_version: string
   sec_sw_version: string
   sec_hw_version: string
+}
+
+export interface DeviceInfo extends MiniDeviceInfo {
+  is_init_complete: boolean
+  time_zone: string
+  device_type: number
+  device_channel: number
+  schedule: string
+  schedulex: string
+  sub1g_mac: string
   sector_id: number
   event_num: number
   wifi_ssid: string
@@ -173,9 +175,18 @@ export interface DeviceInfo {
   battery_usage_last_week: number
 }
 
-export interface DeviceResponse {
-  code: number
-  msg: string
-  data: DeviceInfo[]
-}
+export const StreamRequestRequired = iots.interface({
+  device_sn: iots.string,
+  station_sn: iots.string
+})
 
+export const StreamRequestOptional = iots.partial({
+  proto: iots.number,
+})
+
+export const StreamRequest = iots.intersection([StreamRequestRequired, StreamRequestOptional])
+export type StreamRequestType = iots.TypeOf<typeof StreamRequest>
+
+export interface StreamUrl {
+  url: string
+}
