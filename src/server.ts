@@ -19,10 +19,7 @@ const start = async () => {
   DevicesRoutes.register(app)
   StreamRoutes.register(app)
 
-  app.listen(config.port, (err: Error) => {
-    if (err) {
-      throw err
-    }
+  app.listen(config.port, () => {
     console.debug(`Listening on port: http://localhost:${config.port}`)
   })
 }
