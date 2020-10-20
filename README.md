@@ -39,7 +39,7 @@ Example response:
 ### Get Stream URL
 
 ```
-curl -L -X POST 'http://localhost:3000/stream/start' -H 'Content-Type: application/json' -d '{ "device_id": 0123456789, "device_sn": "***", "station_sn": "***"}'
+curl -L -X POST 'http://localhost:3000/stream/start' -H 'Content-Type: application/json' -d '{ "device_id": 0123456789, "device_sn": "***", "station_sn": "***" }'
 ```
 
 Example response:
