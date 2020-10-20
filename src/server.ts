@@ -17,7 +17,7 @@ const start = async () => {
     if (err) {
       throw err
     }
-    console.debug(`Listening on port: ${config.port}`)
+    console.debug(`Listening on port: http://localhost:${config.port}`)
   })
 }
 

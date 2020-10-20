@@ -1,10 +1,17 @@
+import 'dotenv/config'
+
 import development from './development'
 import production from './production'
 import staging from './staging'
 
 export interface Config {
   port: number,
-  secret: string
+  secret: string,
+  api: {
+    url: string,
+    username: string,
+    password: string
+  }
 }
 
 export const NODE_ENV = process.env.NODE_ENV || 'development'

@@ -1,7 +1,7 @@
 {
-  "name": "typescript-express-template",
+  "name": "eufy-security-proxy",
   "version": "0.0.1",
-  "description": "TypeScript and Express Project Template",
+  "description": "Eufy Security API Proxy",
   "main": "build/src/server.js",
   "types": "build/src/server.d.ts",
   "files": [
@@ -19,7 +19,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/garasingulik/typescript-express-template.git"
+    "url": "git+https://github.com/garasingulik/eufy-security-proxy.git"
   },
   "keywords": [
     "typescript",
@@ -31,9 +31,9 @@
   "author": "Indra Gunawan <indra@garasingulik.com>",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/garasingulik/typescript-express-template/issues"
+    "url": "https://github.com/garasingulik/eufy-security-proxy/issues"
   },
-  "homepage": "https://github.com/garasingulik/typescript-express-template#readme",
+  "homepage": "https://github.com/garasingulik/eufy-security-proxy#readme",
   "dependencies": {
     "axios": "^0.19.2",
     "dotenv": "^8.2.0",
