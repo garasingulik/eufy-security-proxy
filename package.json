@@ -44,7 +44,7 @@
     "tswrap": "^1.0.4"
   },
   "devDependencies": {
-    "@types/express": "^4.17.7",
+    "@types/express": "^4.17.8",
     "@typescript-eslint/eslint-plugin": "^4.4.1",
     "@typescript-eslint/parser": "^4.4.1",
     "ava": "^3.11.1",
