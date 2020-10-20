@@ -1,0 +1,34 @@
+name: Build Version
+
+on:
+  push:
+    # Publish `v1.2.3` tags as releases.
+    tags:
+      - v*
+
+jobs:
+  # Push image to GitHub Packages.
+  # See also https://docs.docker.com/docker-hub/builds/
+  build:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push'
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: FranzDiebold/github-env-vars-action@v1.2.1
+
+      - name: Log into registry
+        run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login docker.pkg.github.com -u ${{ github.actor }} --password-stdin
+
+      - name: Build and push image
+        run: |
+          # Strip git ref prefix from version
+          VERSION=$(echo "${{ github.ref }}" | sed -e 's,.*/\(.*\),\1,')
+
+          # Strip "v" prefix from tag name
+          [[ "${{ github.ref }}" == "refs/tags/"* ]] && VERSION=$(echo $VERSION | sed -e 's/^v//')
+
+          # Build and push docker image
+          docker build -t $GITHUB_REPOSITORY_NAME:$VERSION .
+          docker tag $GITHUB_REPOSITORY_NAME:$VERSION docker.pkg.github.com/$GITHUB_REPOSITORY/$GITHUB_REPOSITORY_NAME:$VERSION
+          docker push docker.pkg.github.com/$GITHUB_REPOSITORY/$GITHUB_REPOSITORY_NAME:$VERSION

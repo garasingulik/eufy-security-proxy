@@ -1,0 +1,27 @@
+name: Build Latest
+
+on:
+  push:
+    # Publish `master` as Docker `latest` image.
+    branches:
+      - master
+
+jobs:
+  # Push image to GitHub Packages.
+  # See also https://docs.docker.com/docker-hub/builds/
+  build:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push'
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: FranzDiebold/github-env-vars-action@v1.2.1
+
+      - name: Log into registry
+        run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login docker.pkg.github.com -u ${{ github.actor }} --password-stdin
+
+      - name: Build and push image
+        run: |
+          docker build -t $GITHUB_REPOSITORY_NAME .
+          docker tag $GITHUB_REPOSITORY_NAME docker.pkg.github.com/$GITHUB_REPOSITORY/$GITHUB_REPOSITORY_NAME
+          docker push docker.pkg.github.com/$GITHUB_REPOSITORY/$GITHUB_REPOSITORY_NAME

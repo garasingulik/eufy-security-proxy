@@ -2,7 +2,7 @@ import { Config } from './index'
 
 const config: Config = {
   port: 80,
-  secret: '54a8736b-7608-40f4-8a49-13db1f25a74e',
+  secret: process.env.API_SECRET || '',
   api: {
     url: 'https://mysecurity.eufylife.com/api/v1',
     username: process.env.API_USERNAME || '',
