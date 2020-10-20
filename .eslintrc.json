@@ -1,0 +1,33 @@
+{
+    "env": {
+        "browser": true,
+        "es2021": true
+    },
+    "extends": [
+        "standard"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "ecmaVersion": 12,
+        "sourceType": "module"
+    },
+    "plugins": [
+        "@typescript-eslint"
+    ],
+    "rules": {
+        "semicolon": 0,	
+        "no-default-export": 0,	
+        "variable-name": 0,	
+        "forin": 0,	
+        "indent": 2,	
+        "await-promise": 0,	
+        "radix": 0,	
+        "no-console": 0,	
+        "interface-name": 0,	
+        "max-line-length": 0,	
+        "no-namespace": 0,	
+        "max-classes-per-file": 0,	
+        "object-literal-sort-keys": 0,	
+        "space-before-function-paren": 2
+    }
+}
