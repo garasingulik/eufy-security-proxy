@@ -4,7 +4,7 @@ const config: Config = {
   port: 80,
   secret: process.env.API_SECRET || '',
   api: {
-    url: 'https://mysecurity.eufylife.com/api/v1',
+    url: process.env.API_HOST || '',
     username: process.env.API_USERNAME || '',
     password: process.env.API_PASSWORD || ''
   }
