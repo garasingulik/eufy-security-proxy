@@ -15,6 +15,7 @@ npm install
 
 Before we run the project, create one `.env` file in the root of the project and configure this value:
 ```
+API_HOST=<eufy api url>
 API_USERNAME=<your eufy login email>
 API_PASSWORD=<your eufy password>
 ```
