@@ -2,7 +2,7 @@
 
 This proxy build from ground up without official API documentation from Eufy Security camera. The proxy has a very limited implementation and the main focus is to get the video stream from the Eufy Security camera it self.
 
-The documentation provided how to access the RTSP stream from local devices but it's limited to recording duration and we can't activete the devices without triggering the motion sensors. Getting continuous stream url is possible using Eufy Security app and from Web Dashboard.
+The documentation provided how to access the RTSP stream from local devices but it's limited to recording duration and we can't activate the devices without triggering the motion sensors. Getting continuous stream url is possible using Eufy Security app and from Web Dashboard.
 
 In that scenario, using this API Proxy allows us to activate the camera remotely and get the RTMP stream url from the list of devices that we registered. Again, as I mentioned in the beginning the implementation is very limited. Feel free to improve this project and make a PR. :-)
 
