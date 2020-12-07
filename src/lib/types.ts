@@ -128,6 +128,12 @@ export interface MiniDeviceInfo {
   main_hw_version: string
   sec_sw_version: string
   sec_hw_version: string
+  charging_days: number
+  // Typo here is from Eufy
+  charing_total: number
+  charging_reserve: number
+  charging_missing: number
+  battery_usage_last_week: number
 }
 
 export interface DeviceInfo extends MiniDeviceInfo {
@@ -168,11 +174,6 @@ export interface DeviceInfo extends MiniDeviceInfo {
   week_pir_none: number
   month_pir_total: number
   month_pir_none: number
-  charging_days: number
-  charing_total: number
-  charging_reserve: number
-  charging_missing: number
-  battery_usage_last_week: number
 }
 
 export const StreamRequestRequired = iots.interface({

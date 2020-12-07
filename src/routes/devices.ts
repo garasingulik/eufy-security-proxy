@@ -6,7 +6,6 @@ import { authenticationMiddleware } from './authorization'
 
 export const DevicesRoutes = {
   register: (app: express.Application) => {
-
     app.get('/devices', authenticationMiddleware, async (req, res) => {
       const data = await getDeviceList()
       if (T.isError(data)) {
@@ -25,7 +24,14 @@ export const DevicesRoutes = {
           main_sw_version: d.main_sw_version,
           sec_hw_version: d.sec_hw_version,
           sec_sw_version: d.sec_sw_version,
-          wifi_mac: d.wifi_mac
+          wifi_mac: d.wifi_mac,
+          charging_days: d.charging_days,
+          // Typo here is from Eufy
+          charing_total: d.charing_total,
+          charging_reserve: d.charging_reserve,
+          charging_missing: d.charging_missing,
+          battery_usage_last_week: d.battery_usage_last_week
+
         }
       })
       return res.json(miniList)

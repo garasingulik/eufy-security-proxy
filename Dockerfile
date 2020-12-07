@@ -1,5 +1,5 @@
 # build environment
-FROM node:12.18.4-stretch as build
+FROM node:12.20.0-buster as build
 WORKDIR /app
 
 ENV PATH /app/node_modules/.bin:$PATH
@@ -11,7 +11,7 @@ COPY . ./
 RUN npm run build
 
 # production environment
-FROM node:12.18.4-stretch-slim
+FROM node:12.20.0-buster-slim
 WORKDIR /app
 
 ENV PATH /app/node_modules/.bin:$PATH
