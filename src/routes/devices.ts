@@ -14,6 +14,7 @@ export const DevicesRoutes = {
         })
       }
       const miniList: T.MiniDeviceInfo[] = data.map(d => {
+        const batteryPercentage = d.params.find((p) => p.param_type === 1101)
         return {
           device_id: d.device_id,
           device_name: d.device_name,
@@ -30,8 +31,8 @@ export const DevicesRoutes = {
           charing_total: d.charing_total,
           charging_reserve: d.charging_reserve,
           charging_missing: d.charging_missing,
-          battery_usage_last_week: d.battery_usage_last_week
-
+          battery_usage_last_week: d.battery_usage_last_week,
+          battery_percentage: parseInt(batteryPercentage?.param_value || "0")
         }
       })
       return res.json(miniList)

@@ -134,6 +134,8 @@ export interface MiniDeviceInfo {
   charging_reserve: number
   charging_missing: number
   battery_usage_last_week: number
+  // custom field
+  battery_percentage: number
 }
 
 export interface DeviceInfo extends MiniDeviceInfo {
