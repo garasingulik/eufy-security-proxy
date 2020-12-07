@@ -5,6 +5,8 @@ WORKDIR /app
 ENV PATH /app/node_modules/.bin:$PATH
 
 COPY package.json ./
+COPY package-lock.json ./
+
 RUN npm install
 
 COPY . ./
@@ -18,6 +20,8 @@ ENV PATH /app/node_modules/.bin:$PATH
 ENV NODE_ENV production
 
 COPY package.json ./
+COPY package-lock.json ./
+
 RUN npm install --production
 COPY --from=build /app/build ./build
 
